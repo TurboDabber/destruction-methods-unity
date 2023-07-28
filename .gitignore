@@ -2,7 +2,15 @@
 #
 # Get latest from https://github.com/github/gitignore/blob/main/Unity.gitignore
 #
-/[Ll]ibrary/
+/Destruction/Library/
+/Destruction/LibBuild/
+/Destruction/Temp/
+/Destruction/[Oo}bj/
+/Destruction/Build/
+/Destruction/Builds/
+/Destruction/Logs/
+/Destruction/UserSettings/
+/Destruction/Library/
 /[Tt]emp/
 /[Oo]bj/
 /[Bb]uild/
