@@ -459,8 +459,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73307b151623e8d4cb885d45ed230118, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  particles: 350
+  particles: 10000
   bounds: {x: 10, y: 129.5, z: 338.6}
+  standartColor: 1
   shatterLayer:
     serializedVersion: 2
     m_Bits: 8
