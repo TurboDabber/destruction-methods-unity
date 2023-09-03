@@ -2,6 +2,7 @@
 using UnityEditor;
 using System.Collections;
 using System.Runtime.InteropServices;
+using System.Diagnostics;
 
 namespace DefKit
 {
@@ -81,6 +82,7 @@ namespace DefKit
 
         private void Generate()
         {
+            Stopwatch stopwatch= Stopwatch.StartNew();
 
             Vector3[] vertices = inputMesh.vertices;
             int vertexCount = inputMesh.vertexCount;
@@ -235,8 +237,9 @@ namespace DefKit
 
             previousGameObject = go;
             Selection.objects = new Object[]{go};
-            Debug.Log("TetGen: "+nodesCount +" nodes, "+edgesCount +" links, "+facesCount +" faces, " +tetrasCount +" tetras.");
-
+            UnityEngine.Debug.Log("TetGen: "+nodesCount +" nodes, "+edgesCount +" links, "+facesCount +" faces, " +tetrasCount +" tetras.");
+            stopwatch.Stop();
+            UnityEngine.Debug.Log("Object set up: " + stopwatch.ElapsedMilliseconds);
             this.Close();
         }
 
@@ -247,22 +250,22 @@ namespace DefKit
             switch (errorCode)
             {
                 case 1:
-                    Debug.LogError("Out of memory.");
+                    UnityEngine.Debug.LogError("Out of memory.");
                     break;
                 case 2:
-                    Debug.LogError("Encounter an internal error.");
+                    UnityEngine.Debug.LogError("Encounter an internal error.");
                     break;
                 case 3:
-                    Debug.LogError("A self-intersection was detected.");
+                    UnityEngine.Debug.LogError("A self-intersection was detected.");
                     break;
                 case 4:
-                    Debug.LogError("A very small input feature size was detected.");
+                    UnityEngine.Debug.LogError("A very small input feature size was detected.");
                     break;
                 case 5:
-                    Debug.LogError("Two very close input facets were detected.");
+                    UnityEngine.Debug.LogError("Two very close input facets were detected.");
                     break;
                 case 10:
-                    Debug.LogError("An input mesh error was detected.\n"
+                    UnityEngine.Debug.LogError("An input mesh error was detected.\n"
                         +"Hint: make sure that the input mesh has no open edges");
                     break;
             }
